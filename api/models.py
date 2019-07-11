@@ -12,7 +12,6 @@ from munkiwebadmin.utils import MunkiGit
 from process.utils import record_status
 from munkiwebadmin.wrappers import writePlistToString, readPlist
 
-
 REPO_DIR = settings.MUNKI_REPO_DIR
 
 LOGGER = logging.getLogger('munkiwebadmin')
@@ -21,6 +20,7 @@ try:
     GIT = settings.GIT_PATH
 except AttributeError:
     GIT = None
+
 
 class FileError(Exception):
     '''Class for file errors'''
