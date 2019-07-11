@@ -118,7 +118,7 @@ def get_input(prompt=None):
 
 # remap basestring in Python 3
 try:
-    _ = basestring
+    basestring = basestring
 except NameError:
     basestring = str
 
