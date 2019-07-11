@@ -16,11 +16,11 @@ from api.models import Plist, \
 import json
 import logging
 import os
-import plistlib
 try:
     from urllib import quote  # Python 2.X
 except ImportError:
     from urllib.parse import quote  # Python 3+
+from munkiwebadmin.wrappers import writePlistToString
 
 REPO_DIR = settings.MUNKI_REPO_DIR
 ICONS_DIR = os.path.join(REPO_DIR, 'icons')
@@ -166,7 +166,7 @@ def detail(request, pkginfo_path):
         for item in default_items:
             if not item in plist:
                 plist[item] = default_items[item]
-        pkginfo_text = plistlib.writePlistToString(plist)
+        pkginfo_text = writePlistToString(plist)
         installer_item_path = plist.get('installer_item_location', '')
         icon_url = get_icon_url(plist)
         context = {'plist_text': pkginfo_text,

@@ -11,7 +11,7 @@ from process.models import Process
 
 import json
 import logging
-import plistlib
+from munkiwebadmin.wrappers import writePlistToString
 
 LOGGER = logging.getLogger('munkiwebadmin')
 
@@ -47,7 +47,7 @@ def index(request, manifest_path=None):
                                 'exception_type': str(type(err)),
                                 'detail': str(err)}),
                     content_type='application/json', status=404)
-            manifest_text = plistlib.writePlistToString(plist)
+            manifest_text = writePlistToString(plist)
             context = {'plist_text': manifest_text,
                        'pathname': manifest_path}
             return render(request, 'manifests/detail.html', context=context)
