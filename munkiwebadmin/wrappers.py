@@ -118,13 +118,14 @@ def get_input(prompt=None):
 
 # remap basestring in Python 3
 try:
-    basestring = basestring
+    wrap_basestring = basestring
 except NameError:
-    basestring = str
+    wrap_basestring = str
+
 
 def is_a_string(something):
     '''Wrapper for basestring vs str'''
-    return isinstance(something, basestring)
+    return isinstance(something, wrap_basestring)
 
 
 def unicode_or_str(something, encoding="UTF-8"):

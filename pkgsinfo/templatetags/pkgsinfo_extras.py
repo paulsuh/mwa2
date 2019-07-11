@@ -4,7 +4,7 @@ from django.template.defaultfilters import stringfilter
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 from distutils.version import LooseVersion
-from munkiwebadmin.wrappers import basestring
+from munkiwebadmin.wrappers import wrap_basestring
 
 # Reference for creating custom filters and tags:-
 # https://docs.djangoproject.com/en/dev/howto/custom-template-tags/
@@ -39,7 +39,7 @@ def wrappable_filter(value, autoescape=None):
 def type_is(item, kind):
     """Returns the data type of the item (plist-style)"""
     if kind == 'string':
-        return isinstance(item, basestring)
+        return isinstance(item, wrap_basestring)
     if kind == 'boolean':
         return isinstance(item, bool)
     if kind == 'integer':
