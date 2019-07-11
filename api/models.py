@@ -114,7 +114,7 @@ class Plist(object):
         data = writePlistToString(plist)
         try:
             with open(filepath, 'w') as fileref:
-                fileref.write(data.encode('utf-8'))
+                fileref.write(data)
             LOGGER.info('Created %s/%s', kind, pathname)
             if user and GIT:
                 MunkiGit().add_file_at_path(filepath, user)
