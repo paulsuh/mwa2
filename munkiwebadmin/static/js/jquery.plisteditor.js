@@ -141,10 +141,10 @@
     function itemAppender(handler) {
         var appender = $('<div>', { 'class': 'item appender' }),
            // btn     = $('<button />', { 'class': 'btn btn-success btn-xs' }),
-            //span    = $('<span>', { 'class': 'glyphicon glyphicon-plus' })
-            btn = $('<span>', { 'class': 'glyphicon glyphicon-plus-sign' })
-        //btn.text('Add New Value');
-        //btn.append(span);
+            span    = $('<span>', { 'class': 'glyphicon glyphicon-plus' })
+            btn = $('<button>', { 'class': 'btn btn-xs btn-success' })
+        btn.text('Add New Value  ');
+        btn.append(span);
         btn.click(handler);
         appender.append(btn);
         return appender;
@@ -152,7 +152,7 @@
 
     function rowControls(opt) {
         var _rowControls = $('<td>', 
-                             {'class': 'row-controls', 'width': '20px'}),
+                             {'class': 'row-controls'}),
             del_btn = $('<span>',
                         {'class': 'row_del_btn glyphicon glyphicon-remove-circle'});
 
