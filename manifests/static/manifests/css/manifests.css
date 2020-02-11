@@ -44,7 +44,11 @@ tbody.connectable {
     visibility: visible;
     color: gray;
     position: relative;
-    top: 4px;
-    left: -2px;
     resize: vertical;
+}
+
+.plist-editor td.mini-row-controls span {
+    font-size: 16px; !important;
+    margin-top: -1px; !important;
+    padding: 1px; !important;
 }
