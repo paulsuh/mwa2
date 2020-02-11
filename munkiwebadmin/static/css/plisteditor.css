@@ -142,3 +142,7 @@ textarea#plist  {
     border-color: #DDD;
     font-family: Courier, monospace;
 }
+
+.danger > textarea {
+    color: #c12e2a;
+}
