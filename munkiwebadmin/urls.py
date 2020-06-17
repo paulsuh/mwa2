@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 from __future__ import print_function
 from django.conf.urls import include, url
+from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 import django.contrib.auth.views
 from django.conf import settings
@@ -12,7 +13,7 @@ admin.autodiscover()
 
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    path(r'admin/', admin.site.urls),
 
     url(r'^login/$', django.contrib.auth.views.login, name='login'),
     url(r'^logout/$', django.contrib.auth.views.logout_then_login,
