@@ -91,7 +91,7 @@ def writePlist(data, filepath):
 def writePlistToString(data):
     '''Wrapper for the differences between Python 2 and Python 3's plistlib'''
     try:
-        return plistlib.dumps(data)
+        return plistlib.dumps(data).decode('utf-8')
     except AttributeError:
         # plistlib module doesn't have a dumps function (as in Python 2)
         try:
