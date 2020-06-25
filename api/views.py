@@ -16,7 +16,7 @@ from api.models import FileError, FileWriteError, FileReadError, \
                        FileDoesNotExistError, FileDeleteError
 
 from munkiwebadmin.django_basic_auth import logged_in_or_basicauth
-from munkiwebadmin.wrappers import basestring, writePlistToString, readPlistFromString
+from munkiwebadmin.wrappers import writePlistToString, readPlistFromString
 
 import datetime
 import json
@@ -30,7 +30,7 @@ LOGGER = logging.getLogger('munkiwebadmin')
 
 def normalize_value_for_filtering(value):
     '''Converts value to a list of strings'''
-    if isinstance(value, (int, float, bool, basestring, dict)):
+    if isinstance(value, (int, float, bool, str, dict)):
         return [str(value).lower()]
     if isinstance(value, list):
         return [str(item).lower() for item in value]
@@ -63,7 +63,7 @@ def convert_strings_to_dates(jdata):
         r"^\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\dZ*$")
     if isinstance(jdata, dict):
         for key, value in jdata.items():
-            if ('date' in key.lower() and isinstance(value, basestring)
+            if ('date' in key.lower() and isinstance(value, str)
                     and iso_date_pattern.match(value)):
                 jdata[key] = datetime.datetime.strptime(
                     value[:19], "%Y-%m-%dT%H:%M:%S")
