@@ -157,7 +157,8 @@ class Plist(object):
                 raise FileWriteError(err)
         try:
             with open(filepath, 'w') as fileref:
-                fileref.write(data.decode('utf-8'))
+                LOGGER.debug( 'writing data %s of type %s to file %s', data, str(type(data)), filepath )
+                fileref.write(data)
             writetimestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
             LOGGER.info('%s - %s: Wrote %s/%s', writetimestamp, user, kind, pathname)
             if user and GIT:
