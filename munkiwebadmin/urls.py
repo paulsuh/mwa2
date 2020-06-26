@@ -15,7 +15,7 @@ admin.autodiscover()
 urlpatterns = [
     path(r'admin/', admin.site.urls),
 
-    url(r'^login/$', LoginView, name='login'),
+    url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^logout/$', logout_then_login,
         name='logout'),
     url(r'^api/', include('api.urls')),
