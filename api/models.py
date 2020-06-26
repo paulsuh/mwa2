@@ -116,7 +116,7 @@ class Plist(object):
         data = writePlistToString(plist)
         try:
             with open(filepath, 'w') as fileref:
-                fileref.write(data.decode('utf-8'))
+                fileref.write(data)
             createtimestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
             LOGGER.info('%s - %s: Created %s/%s', createtimestamp, user, kind, pathname)
             if user and GIT:
