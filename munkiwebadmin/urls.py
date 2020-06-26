@@ -3,7 +3,7 @@ from __future__ import print_function
 from django.conf.urls import include, url
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-import django.contrib.auth.views
+from django.contrib.auth.views import LoginView, logout_then_login
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic.base import RedirectView
@@ -15,8 +15,8 @@ admin.autodiscover()
 urlpatterns = [
     path(r'admin/', admin.site.urls),
 
-    url(r'^login/$', django.contrib.auth.views.login, name='login'),
-    url(r'^logout/$', django.contrib.auth.views.logout_then_login,
+    url(r'^login/$', LoginView, name='login'),
+    url(r'^logout/$', logout_then_login,
         name='logout'),
     url(r'^api/', include('api.urls')),
     url(r'^manifests/', include('manifests.urls')),
