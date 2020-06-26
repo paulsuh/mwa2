@@ -1,4 +1,4 @@
 wheel
-Django==2.2.13
+Django==3.0.7
 django_wsgiserver
 six
