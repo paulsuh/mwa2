@@ -7,3 +7,4 @@ unused_*
 .idea
 ._.DS_Store
 *.DS_Store
+secretkey.txt
