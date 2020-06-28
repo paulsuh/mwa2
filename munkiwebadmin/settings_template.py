@@ -11,7 +11,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x@hgx4r!1rm@c4lax96tx88*d1v+m$&)w1ur4-xvcqj(8as_$q'
+# Use a separate file for the secret key
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+with open(os.path.join(BASE_DIR, 'secretkey.txt')) as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -33,9 +36,11 @@ INSTALLED_APPS = [
     'pkgsinfo',
     'manifests',
     'process',
+    # app to generate secret key dynamically
+    'django_generate_secret_key',
     # Uncomment the next line if you've installed django_wsgiserver
     # and want to serve this Django app using it
-    'django_wsgiserver',
+    #'django_wsgiserver',
 ]
 
 MIDDLEWARE = [

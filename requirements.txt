@@ -1,7 +1,6 @@
 asgiref==3.2.10
 Django==3.0.7
 django-generate-secret-key==1.0.2
-django-wsgiserver==0.6.10
 pytz==2020.1
 six==1.15.0
 sqlparse==0.3.1
